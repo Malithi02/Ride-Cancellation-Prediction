@@ -48,7 +48,7 @@ def main():
         print("Please run the training notebook first to generate the model files.")
         sys.exit(1)
     
-    print("🚗 Starting Ride Cancellation Prediction App with Ngrok...")
+    print("Starting Ride Cancellation Prediction App with Ngrok...")
     print("=" * 60)
     
     # Set environment variable to skip Streamlit email prompt
@@ -67,16 +67,16 @@ def main():
     ], cwd=str(script_dir), env=env, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
     
     # Wait for Streamlit to start
-    print("⏳ Waiting for Streamlit to start...")
+    print("Waiting for Streamlit to start...")
     if wait_for_port(8501, 30):
-        print("✅ Streamlit app is running on http://localhost:8501")
+        print("Streamlit app is running on http://localhost:8501")
     else:
-        print("❌ Streamlit failed to start within 30 seconds")
+        print("Streamlit failed to start within 30 seconds")
         streamlit_process.terminate()
         sys.exit(1)
     
     # Start ngrok
-    print("🌐 Starting ngrok tunnel...")
+    print("Starting ngrok tunnel...")
     try:
         ngrok_process = subprocess.Popen([
             "ngrok", "http", "8501"
@@ -85,10 +85,10 @@ def main():
         # Give ngrok time to start
         time.sleep(3)
         
-        print("✅ Ngrok tunnel created successfully!")
-        print("🔗 Your app is now accessible via ngrok")
-        print("📱 Local URL: http://localhost:8501")
-        print("🌍 Public URL: Check ngrok dashboard at http://localhost:4040")
+        print(" Ngrok tunnel created successfully!")
+        print("Your app is now accessible via ngrok")
+        print(" Local URL: http://localhost:8501")
+        print("Public URL: Check ngrok dashboard at http://localhost:4040")
         print("=" * 60)
         print("Press Ctrl+C to stop both services")
         
@@ -97,13 +97,13 @@ def main():
             while True:
                 time.sleep(1)
         except KeyboardInterrupt:
-            print("\n🛑 Shutting down services...")
+            print("\nShutting down services...")
             streamlit_process.terminate()
             ngrok_process.terminate()
             print("👋 Services stopped")
             
     except FileNotFoundError:
-        print("❌ Ngrok not found. Please install ngrok first:")
+        print(" Ngrok not found. Please install ngrok first:")
         print("   1. Download from https://ngrok.com/download")
         print("   2. Add to your PATH")
         print("   3. Run: ngrok authtoken YOUR_TOKEN")
@@ -114,7 +114,7 @@ def main():
             while True:
                 time.sleep(1)
         except KeyboardInterrupt:
-            print("\n🛑 Shutting down Streamlit...")
+            print("\n Shutting down Streamlit...")
             streamlit_process.terminate()
             print("👋 Streamlit stopped")
 

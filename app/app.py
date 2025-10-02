@@ -204,7 +204,7 @@ def main():
         return
     
     # Header
-    st.markdown('<h1 class="main-header">🚗 Ride Cancellation Prediction Dashboard</h1>', unsafe_allow_html=True)
+    st.markdown('<h1 class="main-header"> Ride Cancellation Prediction Dashboard</h1>', unsafe_allow_html=True)
     st.markdown("**Predict ride cancellations and gain insights to improve your ride-sharing business**")
     
     # Sidebar navigation
@@ -230,7 +230,7 @@ def main():
         col1, col2 = st.columns([1, 1])
         
         with col1:
-            st.subheader("📝 Input Details")
+            st.subheader(" Input Details")
             
             # Basic ride information
             vehicle_type = st.selectbox(
@@ -296,7 +296,7 @@ def main():
                 )
         
         # Prediction button
-        if st.button("🔮 Predict Cancellation Risk", type="primary", use_container_width=True):
+        if st.button(" Predict Cancellation Risk", type="primary", use_container_width=True):
             with st.spinner("Processing prediction..."):
                 # Create input dataframe
                 input_data = {
